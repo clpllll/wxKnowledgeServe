@@ -3,9 +3,9 @@ const WXBizDataCrypt = require('../utils/wxCrypto');
 const { encrypt } = require('../utils/crypto');
 module.exports = async (ctx) => {
   const { code, encryptedData, iv } = ctx.request.body;
-  const appId = "wx5960a540726be2cd";
+  const appId = "";
   const p = await new Promise((resolve, reject) => {
-    request(`https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=e3053726f6383a2263fc25a7c860cb22&js_code=${code}&grant_type=authorization_code`, (error, response, body) => {
+    request(`https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=  &js_code=${code}&grant_type=authorization_code`, (error, response, body) => {
       const body1 = JSON.parse(body)
       if (body1.session_key) resolve(body1)
       else reject("")
